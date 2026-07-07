@@ -4,6 +4,21 @@ Interactive PowerShell CLI for Windows 365 Cloud PC workflows. It builds on the 
 
 ## Start
 
+Install from PowerShell Gallery:
+
+```powershell
+Install-Module W365CLI -Scope CurrentUser
+w365
+```
+
+Update an existing install:
+
+```powershell
+Update-Module W365CLI
+```
+
+Use the local source build:
+
 ```powershell
 Import-Module C:\Git\GitHub\W365-CLI\W365CLI.psd1 -Force
 w365
@@ -22,6 +37,23 @@ C:\Git\GitHub\WindowsCloudPC\WindowsCloudPC.psd1
 ```
 
 If the sibling repo is not present, it falls back to importing `WindowsCloudPC` from the installed module path.
+
+## Build and publish
+
+Run local validation:
+
+```powershell
+.\build.ps1 -Task All
+```
+
+Publish is handled by GitHub Actions when a version tag is pushed:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The release workflow reads the PowerShell Gallery key from the `PSGALLERY_API_KEY` repository secret.
 
 ## Current workflows
 

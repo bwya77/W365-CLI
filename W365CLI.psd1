@@ -7,6 +7,9 @@
     Copyright         = '(c) Bradley Wyatt. All rights reserved.'
     Description       = 'Interactive CLI for Windows 365 Cloud PC workflows built on the WindowsCloudPC PowerShell module.'
     PowerShellVersion = '7.0'
+    RequiredModules   = @(
+        @{ ModuleName = 'WindowsCloudPC'; ModuleVersion = '0.1.24' }
+    )
     FunctionsToExport = @(
         'Invoke-W365CLI',
         'Invoke-W365Resize',
@@ -36,9 +39,11 @@
     )
     PrivateData       = @{
         PSData = @{
-            Tags       = @('Windows365','CloudPC','W365','CLI','MicrosoftGraph')
-            ProjectUri = ''
-            LicenseUri = ''
+            Tags                       = @('Windows365','CloudPC','W365','CLI','MicrosoftGraph','Intune')
+            ProjectUri                 = 'https://github.com/bwya77/W365-CLI'
+            LicenseUri                 = 'https://github.com/bwya77/W365-CLI/blob/main/LICENSE'
+            ReleaseNotes               = 'Initial W365 CLI release for interactive Windows 365 Cloud PC operations.'
+            ExternalModuleDependencies = @('WindowsCloudPC')
         }
     }
 }
